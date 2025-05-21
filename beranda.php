@@ -19,7 +19,6 @@
 
     <!-- Header -->
     <header>
-        <img src="" alt="">
         <h1>UC Collab</h1>
         <p>"Jembatan Kolaborasi Acara dan Panitia di Universitas Ciputra."</p>
         <button>Telusuri Kepanitiaan</button>
@@ -30,20 +29,21 @@
         <div>
         <!-- Footer Logo -->
             <div>
-                <img src="" alt="">
+                <img src="pic/logo.svg" alt="UC Collab Logo">
             </div>
 
             <!-- Kontak Kami -->
             <div>
+                <h4>Kontak Kami</h4>
                 <ul>
                     <!-- Email -->
                     <li>
-                        <img src="" alt="">
+                        <img src="mailto:clarstasia@gmail.com" alt="">
                         <p><a>clarstasia@gmail.com</a></p>
                     </li>
                     <!-- Instagram -->
                     <li>
-                        <img src="" alt="">
+                        <img src="instagram.com/@c" alt="">
                         <p><a>@clarstasia</a></p>
                     </li>
                     <!-- YouTube -->
@@ -56,11 +56,12 @@
 
             <!-- Tautan -->
             <div>
+                <h4>Tautan</h4>
                 <ul>
-                    <li><a>Beranda</a></li>
-                    <li><a>Kepanitiaan</a></li>
-                    <li><a>Daftar</a></li>
-                    <li><a>Masuk</a></li>
+                    <li><a href="beranda.php">Beranda</a></li>
+                    <li><a href="kepanitiaan.php">Kepanitiaan</a></li>
+                    <li><a href="daftar.php">Daftar</a></li>
+                    <li><a href="masuk.php">Masuk</a></li>
                 </ul> 
             </div>
 
