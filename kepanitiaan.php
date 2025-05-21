@@ -6,7 +6,7 @@
     <title>UC Collab | Beranda</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-[#FFFEF8]">
     <!-- Navigation Bar -->
     <nav class="bg-gradient-to-r from-orange-500 to-orange-400 flex items-center justify-between px-6 py-3 shadow-md">
         <a href="#" class="flex items-center">
@@ -37,44 +37,204 @@
 
     <!-- Daftar Kepanitiaan -->
     <section class="py-10 px-4 md:px-16 bg-white">
-        <!-- Search Bar -->
-        <div class="flex justify-center mb-8">
-            <div class="relative w-full max-w-md">
-            <input
-                type="text"
-                placeholder="Cari"
-                class="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-            />
-            <button
-                class="absolute right-1 top-1/2 -translate-y-1/2 bg-orange-400 hover:bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm"
-            >
-                Cari
-            </button>
-            </div>
+        
+    <!-- Search Bar -->
+    <div class="flex justify-center items-center gap-2 mb-8">
+        <input type="text" placeholder="Cari kepanitiaan..."
+        class="shadow-md border rounded-full px-4 py-2 w-[250px] focus:outline-none" />
+        <button class="shadow-md bg-orange-400 hover:bg-orange-500 text-white font-semibold px-4 py-2 rounded-full">
+        
+        Cari
+        </button>
+    </div>
+
+    <!-- Section Title -->
+    <h2 class="text-center text-xl font-bold mb-6">Daftar Kepanitiaan</h2>
+
+    <!-- Grid of Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- Card O-Week -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/oweek.PNG" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">O-Week 2025</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
         </div>
 
-        <!-- Title -->
-        <h2 class="text-2xl font-bold text-center mb-8">Daftar Kepanitiaan</h2>
-
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card Component Start -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border hover:shadow-lg transition">
-            <img src="pic/o-week.png" alt="O-Week" class="w-full h-40 object-cover">
-            <div class="p-4 space-y-2">
-                <h3 class="text-lg font-semibold">O-Week 2025</h3>
-                <p class="text-sm text-gray-600 flex items-center gap-1">
-                <img src="pic/univ-icon.svg" alt="" class="w-4 h-4"> Universitas Ciputra
-                </p>
-                <p class="text-sm text-gray-600 flex items-center gap-1">
-                <img src="pic/time-icon.svg" alt="" class="w-4 h-4"> APR 2025 • 100 posisi terbuka
-                </p>
-                <button class="mt-2 bg-orange-400 hover:bg-orange-500 text-white text-sm px-4 py-2 rounded-full">Daftar</button>
-            </div>
-            </div>
-            <!-- Card Component End -->
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
         </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+
+        <!-- Card Bounceback 2025 -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/bounceback.jpg" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">Bounceback 2025</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
+        </div>
+
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
+        </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+
+        <!-- Card CoFFEE 2025 -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/coffee.PNG" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">CoFFEE 2025</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
+        </div>
+
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
+        </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+
+        <!-- Card Ohanami Festival -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/ohanami.png" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">Ohanami Festival</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
+        </div>
+
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
+        </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+
+        <!-- Narcobye 3.0 -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/narcobye.jpg" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">Narcobye 3.0</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
+        </div>
+
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
+        </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+
+        <!-- Mindspace -->
+        <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
+        <img src="pic/kepanitiaan/mindspace.jpg" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg">Mindspace</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
+            <div class="flex items-center gap-3 mt-4">
+        <!-- Calendar -->
+        <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
+            <div class="text-xs text-gray-500 uppercase">Apr</div>
+            <div class="text-lg text-black leading-none">4</div>
+            <div class="text-[10px] text-gray-500">2025</div>
+        </div>
+
+        <!-- Event Info -->
+        <div class="text-sm">
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+            </p>
+            <p class="flex items-center gap-2 text-gray-800">
+            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+            </p>
+        </div>
+        </div>
+
+        </div>
+        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+            Daftar
+        </button>
+        </div>
+    </div>
     </section>
+
 
 
     <!--  -->
