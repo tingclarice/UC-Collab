@@ -15,9 +15,9 @@
         <ul class="flex items-center space-x-6 text-white font-medium">
             <li><a href="#" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
             <li><a href="#" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
-            <li><a href="#" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
+            <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
             <li>
-            <a href="#" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
+            <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
                 Masuk
             </a>
             </li>
