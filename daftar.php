@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body class="flex h-screen">
+<body class="flex h-screen bg-orange-500"> 
     <div class="w-1/2 bg-cover bg-center" style="background-image: url('pic/uclogin.jpg');"></div>
     <div class="w-1/2 flex items-center justify-center bg-white">
         <div class="w-3/4 p-8 rounded-lg shadow-lg">
@@ -31,12 +31,11 @@
                     <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
                 <div class="mb-4">
-                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Daftar</button>
+                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Daftar</button> <!-- Button styling -->
                 </div>
                 <p class="text-sm text-gray-600">Sudah punya akun? <a href="login.php" class="text-blue-500">Masuk</a></p>
             </form>
         </div>
     </div>
-    
 </body>
 </html>
