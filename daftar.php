@@ -11,7 +11,7 @@
     <div class="w-1/2 bg-cover bg-center" style="background-image: url('pic/uclogin.jpg');"></div>
     <div class="w-1/2 flex items-center justify-center bg-white">
         <div class="w-3/4 p-8 rounded-lg shadow-lg">
-            <h1 class="text-2xl font-bold mb-4">UC Collab</h1>
+            <div style="background-image: url('pic/logo.svg'); height: 60px; width: 180px; background-size: contain; background-repeat: no-repeat; margin-bottom: 24px;"></div>
             <h2 class="text-xl mb-6">Daftar</h2>
             <form id="registrationForm" method="POST" action="submit.php">
                 <div class="mb-4">
