@@ -8,12 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="flex h-screen bg-orange-500"> 
-    <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://placehold.co/600x800?text=Building+Image');"></div>
+    <div class="w-1/2 bg-cover bg-center" style="background-image: url('pic/uclogin.jpg');"></div>
     <div class="w-1/2 flex items-center justify-center bg-white">
         <div class="w-3/4 p-8 rounded-lg shadow-lg">
             <div class="flex items-center mb-6">
-                <img src="https://placehold.co/180x60?text=UC+Collab" alt="UC Collab Logo" class="h-16 mr-2">
-                <h1 class="text-2xl font-bold">UC Collab</h1>
+                <img src="pic/logo.svg" alt="UC Collab Logo" class="h-16 mr-2">
+                <h1 class="text-2xl font-bold"></h1>
             </div>
             <h2 class="text-xl mb-6">Masuk</h2>
             <form id="loginForm" method="POST" action="submit_login.php">
