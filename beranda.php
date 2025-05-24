@@ -15,9 +15,9 @@
         <ul class="flex items-center space-x-6 text-white font-medium">
             <li><a href="#" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
             <li><a href="#" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
-            <li><a href="#" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
+            <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
             <li>
-            <a href="#" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
+            <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
                 Masuk
             </a>
             </li>
@@ -36,7 +36,41 @@
         </div>
     </header>
 
-    <!-- Section -->
+    <!-- Mission Section -->
+    <section class="py-16 px-6 bg-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Misi Kami</h2>
+            <p class="mb-6">Di Universitas Ciputra, sering terjadi dua hal:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li><strong>Penyelenggara acara</strong> kesulitan mencari panitia, dan</li>
+                <li><strong>Mahasiswa</strong> kehilangan peluang untuk terlibat karena kurangnya informasi.</li>
+            </ul>
+            <p class="mb-6">UC Collab hadir sebagai jembatan digital yang mempertemukan keduanya. Melalui platform ini, penyelenggara acara dapat serta membuka rekrutmen panitia secara terbuka. Mahasiswa lain pun dapat dengan mudah menelusuri acara yang sedang berlangsung, melihat posisi yang tersedia, dan langsung mendaftar secara online.</p>
+            <img src="pic/logo.svg" alt="UC Collab Logo" class="h-20 mx-auto">
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-orange-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">Pendaftar Kepanitiaan</h3>
+                <ul class="list-disc list-inside">
+                    <li>🔍 Telusuri acara kampus yang sedang mencari panitia</li>
+                    <li>📋 Melihat posisi panitia yang tersedia dan kuota tersisa</li>
+                    <li>📝 Mendaftar langsung ke posisi pilihan hanya dengan mengisi formulir</li>
+                </ul>
+            </div>
+            <div class="bg-orange-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">Penyelenggara Acara</h3>
+                <ul class="list-disc list-inside">
+                    <li>🛠️ Membuat dan mengelola acara baru melalui dashboard</li>
+                    <li>📌 Menambahkan posisi panitia yang dibutuhkan</li>
+                    <li>📊 Melihat daftar pendaftar tiap posisi secara real-time</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!--  -->
     <footer class="relative bg-[#243D4A] text-white px-10 py-8 overflow-hidden">
