@@ -28,7 +28,10 @@
     <section class="bg-[#FFFEF8]">
         <div class="w-3/4 md:max-w-4xl m-10 mx-auto bg-[#FFF3E9] p-8 rounded-lg shadow text-[#273F4F]">
         <!-- POSTER & NAMA ACARA -->
-        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mt-2 mb-4">Form Pendaftaran O-Week 2025</h1>
+            <img src="pic/kepanitiaan/oweek.PNG" alt="Poster O-Week 2025" class="mx-auto w-full max-w-md rounded-lg shadow-lg">
+        </div>
 
         <!-- FORM START -->
         <form class="space-y-8">
@@ -55,13 +58,30 @@
                 <div>
                     <label class="block mb-1 font-medium" for="jurusan">Jurusan*</label>
                     <select id="jurusan" name="jurusan" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                    <option value="">Pilih Jurusan</option>
+                        <option value="IBM-RC">International Business Management - Regular Class</option>
+                        <option value="IBM-IC">International Business Management - International Class</option>
+                        <option value="ACC">Accounting</option>
+                        <option value="VCD">Visual Communication Design</option>
+                        <option value="ARS">Architecture</option>
+                        <option value="FDB">Fashion Design Business</option>
+                        <option value="HTB">Hotel & Tourism Business</option>
+                        <option value="CB">Culinary Business</option>
+                        <option value="FTP">Food Technology Program</option>
+                        <option value="IMT">Informatics</option>
+                        <option value="ISB">Information Systems for Business</option>
+                        <option value="MED-RC">Medical - Regular Class</option>
+                        <option value="MED-IC">Medical - International Class</option>
+                        <option value="PSY">Psychology</option>
+                        <option value="FIKOM">Communication</option>
                     </select>
                 </div>
                 <div>
                     <label class="block mb-1 font-medium" for="angkatan">Angkatan*</label>
                     <select id="angkatan" name="angkatan" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                    <option value="">Pilih Angkatan</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
                     </select>
                 </div>
                 </div>
