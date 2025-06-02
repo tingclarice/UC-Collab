@@ -1,13 +1,22 @@
 <?php
+    include "backend/controller.php";
+    
     if(isset($_POST['submit'])) {
         // Get form data
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
-        echo "<script type='text/javascript'>alert('".$username."');</script>";
-
         
+        $sql = "INSERT INTO organizers (name, email, password) VALUES ('$username', '$email', '$password')";
+    
+        if($conn -> query($sql)) {
+            echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";
+        }
     }
 ?>
 
@@ -16,7 +25,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Registration Page</title>
+    <title>UC Collab | Registration Page</title>
 
     <!-- Tailwind 3 CDN (for arbitrary values) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,6 +42,28 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="bg-[#FF9149] min-h-screen flex flex-col">
+    
+    <!-- jQuery Password Validation -->
+    <script>
+    $(document).ready(function() {
+        $('#pendaftaranAkun').on('submit', function(e) {
+            var password = $('#password').val();
+            var confirmPassword = $('#confirmPassword').val();
+
+            if (password.length < 8) {
+                alert('Password harus minimal 8 karakter.');
+                e.preventDefault();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Password dan konfirmasi password tidak cocok.');
+                e.preventDefault();
+                return;
+            }
+        });
+    });
+    </script>
 
     <!-- Optional navigation include -->
     <?php include "layout/nav.html" ?>
@@ -97,5 +128,7 @@
         </form>
         </div>
     </main>
+
+    
 </body>
 </html>
