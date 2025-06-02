@@ -8,6 +8,23 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="flex h-screen bg-orange-500"> 
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-orange-500 to-orange-400 flex items-center justify-between px-6 py-3 shadow-md">
+        <a href="index.php" class="flex items-center">
+            <img src="pic/logo.svg" alt="UC Collab Logo" class="h-10 w-auto">
+        </a>
+        <ul class="flex items-center space-x-6 text-white font-medium">
+            <li><a href="index.php" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
+            <li><a href="kepanitiaan.php" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
+            <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
+            <li>
+            <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
+                Masuk
+            </a>
+            </li>
+        </ul>
+    </nav>
+
     <div class="w-1/2 bg-cover bg-center" style="background-image: url('pic/uclogin.jpg');"></div>
     <div class="w-1/2 flex items-center justify-center bg-white">
         <div class="w-3/4 p-8 rounded-lg shadow-lg">

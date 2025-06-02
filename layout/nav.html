@@ -1,0 +1,51 @@
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-gradient-to-r from-orange-500 to-orange-400 px-6 py-3 shadow-md">
+    <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center">
+        <img src="pic/logo.svg" alt="UC Collab Logo" class="h-10 w-auto">
+        </a>
+
+        <!-- Hamburger Button -->
+        <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        </button>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center space-x-6 text-white font-medium">
+        <li><a href="index.php" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
+        <li><a href="kepanitiaan.php" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
+        <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
+        <li>
+            <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
+            Masuk
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <!-- Mobile Menu (dropdown below nav) -->
+    <ul id="nav-links" class="md:hidden hidden flex-col space-y-3 mt-4 text-white font-medium">
+        <li><a href="index.php" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
+        <li><a href="kepanitiaan.php" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
+        <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
+        <li>
+        <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
+            Masuk
+        </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- jQuery Toggle Script -->
+<script>
+    $(document).ready(function () {
+        $('#menu-toggle').click(function () {
+        $('#nav-links').toggleClass('hidden');
+        });
+    });
+</script>
