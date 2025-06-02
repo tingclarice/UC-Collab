@@ -9,12 +9,12 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="bg-gradient-to-r from-orange-500 to-orange-400 flex items-center justify-between px-6 py-3 shadow-md">
-        <a href="#" class="flex items-center">
+        <a href="index.php" class="flex items-center">
             <img src="pic/logo.svg" alt="UC Collab Logo" class="h-10 w-auto">
         </a>
         <ul class="flex items-center space-x-6 text-white font-medium">
-            <li><a href="#" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
-            <li><a href="#" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
+            <li><a href="index.php" class="text-white hover:text-gray-100 border-b-2 border-white drop-shadow">Beranda</a></li>
+            <li><a href="kepanitiaan.php" class="text-white hover:text-gray-100 drop-shadow">Kepanitiaan</a></li>
             <li><a href="daftar.php" class="text-white hover:text-gray-100 drop-shadow">Daftar</a></li>
             <li>
             <a href="masuk.php" class="bg-white text-orange-500 px-4 py-1 rounded-full font-semibold drop-shadow hover:bg-gray-100 transition">
@@ -30,7 +30,7 @@
         <div class="bg-black bg-opacity-60 p-8 rounded-xl text-center">
             <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">UC Collab</h1>
             <p class="italic mb-6 drop-shadow-md">"Jembatan Kolaborasi Acara dan Panitia di Universitas Ciputra."</p>
-            <a href="#"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
+            <a href="kepanitiaan.php"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
                 Telusuri Kepanitiaan
             </button></a>
         </div>
