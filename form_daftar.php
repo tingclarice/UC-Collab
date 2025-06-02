@@ -34,7 +34,7 @@
         </div>
 
         <!-- FORM START -->
-        <form class="space-y-8">
+        <form action="" method="" class="space-y-8">
             <!-- Data Diri -->
             <div>
                 <h2 class="text-2xl font-semibold mb-4">Data Diri</h2>
