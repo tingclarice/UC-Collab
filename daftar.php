@@ -33,7 +33,7 @@
                 <div class="mb-4">
                     <button type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Daftar</button> <!-- Button styling -->
                 </div>
-                <p class="text-sm text-gray-600">Sudah punya akun? <a href="login.php" class="text-blue-500">Masuk</a></p>
+                <p class="text-sm text-gray-600">Sudah punya akun? <a href="masuk.php" class="text-blue-500">Masuk</a></p>
             </form>
         </div>
     </div>

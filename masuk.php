@@ -28,6 +28,7 @@
                 <div class="mb-4">
                     <button type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Masuk</button> <!-- Button styling -->
                 </div>
+                <p class="text-sm text-gray-600">Belum punya akun? <a href="daftar.php" class="text-blue-500">Daftar</a></p>
             </form>
         </div>
     </div>
