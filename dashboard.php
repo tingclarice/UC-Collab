@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +33,8 @@
     <header class="relative bg-cover bg-center text-white h-[500px] flex items-center justify-center"
         style="background-image: url('pic/header.png')">
         <div class="bg-black bg-opacity-60 p-10 rounded-xl text-center">
-            <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Daftar Acara</h1>
-            <a href="#"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
+            <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Organizer Dashboard</h1>
+            <a href="createEvent.php"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
                 Buat Acara Baru
             </button></a>
         </div>

@@ -1,5 +1,10 @@
 <?php
     include "backend/controller.php";
+    session_start();
+
+    if(isset($_SESSION["is_login"])) {
+        header ("location: dashboard.php");
+    }
 
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
@@ -12,6 +17,11 @@
 
         if($result -> num_rows > 0) {
             echo "<script type='text/javascript'>alert('Login Berhasil!');</script>";
+            $data = $result -> fetch_assoc();
+            $_SESSION["username"] = $data['name']; // store name dari database ke session
+            $_SESSION["is_login"] = true;
+
+            header("Location: dashboard.php");
         } else {
             echo "<script type='text/javascript'>alert('Login Gagal! Periksa username dan password Anda.');</script>";
         }

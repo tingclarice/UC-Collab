@@ -1,6 +1,10 @@
 <?php
     include "backend/controller.php";
     
+    if(isset($_SESSION["is_login"])) {
+        header ("location: dashboard.php");
+    }
+
     if(isset($_POST['submit'])) {
         // Get form data
         $username = $_POST['username'];
@@ -12,7 +16,7 @@
     
         if($conn -> query($sql)) {
             echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
-            header("Location: dashboard.php");
+            header("Location: masuk.php");
             exit();
         } else {
             echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";

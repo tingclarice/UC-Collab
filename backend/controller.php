@@ -18,5 +18,4 @@ function my_closeDB($conn) {
     mysqli_close($conn);
 }
 
-
 ?>
