@@ -14,16 +14,17 @@ CREATE TABLE categories (
 
 -- Table: Events (main)
 CREATE TABLE events (
-    events_id INT PRIMARY KEY AUTO_INCREMENT,
-    event_name VARCHAR(255) NOT NULL,
-    description TEXT,
-    location VARCHAR(255),
-    application_deadline DATE,
-    poster_url TEXT,
-    organizer_id INT,
-    category_id INT,
+    `events_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `event_name` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `location` VARCHAR(255),
+    `application_deadline` DATE,
+    `poster_url` TEXT,
+    `organizer_id` INT,
+    `category_id` INT,
     FOREIGN KEY (organizer_id) REFERENCES organizers(organizer_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+    FOREIGN KEY (category_id) REFERENCES categories(category_id),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );     
 
 -- Table: Application

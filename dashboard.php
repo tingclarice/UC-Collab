@@ -1,6 +1,13 @@
 <?php
     session_start();
 
+    // Verify organizer is logged in
+    // if(!isset($_SESSION['organizer_id'])) {
+    //     echo "<script>
+    //         alert('Please login as an organizer first.');
+    //     </script>";
+    //     header("Location: masuk.php");
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +29,12 @@
         }
     </style>
 
-    <!-- jQuery for any interactivity -->
+    <!-- jQuery for interactivity -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-[#FFFEF8]">
-    <!-- Optional navigation include -->
-    <?php include "layout/nav.html" ?>
+    <!-- Navigation bar -->
+    <?php include "layout/navAdmin.html" ?>
 
     <!-- Header -->
     <header class="relative bg-cover bg-center text-white h-[500px] flex items-center justify-center"
