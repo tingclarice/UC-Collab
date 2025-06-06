@@ -1,36 +1,97 @@
+<?php
+    include "backend/controller.php";
+    session_start();
+
+    if(isset($_SESSION["is_login"])) {
+        header ("location: dashboard.php");
+    }
+
+    if(isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM organizers WHERE 
+        name='$username' AND password='$password'";
+
+        $result = $conn -> query($sql);
+
+        if($result -> num_rows > 0) {
+            echo "<script type='text/javascript'>alert('Login Berhasil!');</script>";
+            $data = $result -> fetch_assoc();
+            $_SESSION["username"] = $data['name']; // store name dari database ke session
+            $_SESSION["is_login"] = true;
+
+            header("Location: dashboard.php");
+        } else {
+            echo "<script type='text/javascript'>alert('Login Gagal! Periksa username dan password Anda.');</script>";
+        }
+    }
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>UC Collab | Login Page</title>
+    
+    <!-- Tailwind 3 CDN (for arbitrary values) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <style>
+        body {
+        font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <!-- jQuery for any interactivity -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 </head>
-<body class="flex h-screen bg-orange-500"> 
-    <div class="w-1/2 bg-cover bg-center" style="background-image: url('pic/uclogin.jpg');"></div>
-    <div class="w-1/2 flex items-center justify-center bg-white">
-        <div class="w-3/4 p-8 rounded-lg shadow-lg">
-            <div class="flex items-center mb-6">
-                <img src="pic/logo.svg" alt="UC Collab Logo" class="h-16 mr-2">
-                <h1 class="text-2xl font-bold"></h1>
-            </div>
-            <h2 class="text-xl mb-6">Masuk</h2>
-            <form id="loginForm" method="POST" action="submit_login.php">
-                <div class="mb-4">
-                    <label for="username" class="block text-sm font-medium text-gray-700">Username*</label>
-                    <input type="text" id="username" name="username" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                </div>
-                <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password*</label>
-                    <input type="password" id="password" name="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                </div>
-                <div class="mb-4">
-                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Masuk</button> <!-- Button styling -->
-                </div>
-                <p class="text-sm text-gray-600">Belum punya akun? <a href="daftar.php" class="text-blue-500">Daftar</a></p>
-            </form>
+<body class="bg-[#FF9149] min-h-screen flex flex-col overflow-x-hidden"> 
+    <!-- Optional navigation include -->
+    <?php include "layout/nav.html" ?>
+
+    <main class="flex flex-col md:flex-row min-h-screen">
+        <!-- Left image -->
+        <div class="hidden md:block w-1/2">
+        <img src="pic/uclogin.jpg" alt="UC Collab Background" class="w-full h-full object-cover" />
         </div>
-    </div>
+            
+        <!-- Right form -->
+        <div class="w-full md:w-1/2 flex items-center justify-center bg-[#FF9149] px-6 m-4">
+        <form id="loginForm" method="POST" action="masuk.php"
+            class="w-full max-w-md bg-[#FFFEF8] rounded-lg shadow-lg p-8">
+            
+            <!-- Logo -->
+            <img src="pic/logo.svg" alt="UC Collab Logo" class="h-[60px] w-[180px] bg-contain bg-no-repeat mb-6 mx-auto"/>
+
+            <!-- Heading -->
+            <h2 class="text-2xl font-bold text-[#273F4F] text-center mb-6">Masuk</h2>
+
+            <!-- Username -->
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username*</label>
+                <input type="text" id="username" name="username" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password*</label>
+                <input type="password" id="password" name="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-4">
+                <button name="submit" type="submit" class="w-full bg-orange-500 text-white font-bold py-2 rounded-md">Masuk</button> <!-- Button styling -->
+            </div>
+            <p class="text-sm text-gray-600">Belum punya akun? <a href="daftar.php" class="text-blue-500">Daftar</a></p>
+        </form>
+        </div>
+    </main>
 </body>
 </html>

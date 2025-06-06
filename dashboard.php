@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    // Verify organizer is logged in
+    // if(!isset($_SESSION['organizer_id'])) {
+    //     echo "<script>
+    //         alert('Please login as an organizer first.');
+    //     </script>";
+    //     header("Location: masuk.php");
+    // }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,20 +29,20 @@
         }
     </style>
 
-    <!-- jQuery for any interactivity -->
+    <!-- jQuery for interactivity -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-[#FFFEF8]">
-    <!-- Optional navigation include -->
-    <?php include "layout/nav.html" ?>
+    <!-- Navigation bar -->
+    <?php include "layout/navAdmin.html" ?>
 
     <!-- Header -->
     <header class="relative bg-cover bg-center text-white h-[500px] flex items-center justify-center"
         style="background-image: url('pic/header.png')">
-        <div class="bg-black bg-opacity-60 p-8 rounded-xl text-center">
-            <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Daftar Kepanitiaan</h1>
-            <a href="#"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
-                Telusuri
+        <div class="bg-black bg-opacity-60 p-10 rounded-xl text-center">
+            <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Organizer Dashboard</h1>
+            <a href="createEvent.php"><button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg">
+                Buat Acara Baru
             </button></a>
         </div>
     </header>
@@ -49,7 +61,7 @@
     </div>
 
     <!-- Section Title -->
-    <h2 class="text-center text-xl font-bold mb-6">Daftar Kepanitiaan</h2>
+    <h2 class="text-center text-xl font-bold mb-6">Daftar Acara</h2>
 
     <!-- Grid of Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -79,7 +91,7 @@
 
         </div>
         <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
-            Daftar
+            Edit
         </button>
         </div>
 
