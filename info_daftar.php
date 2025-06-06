@@ -114,28 +114,8 @@
                 <h2 class="text-2xl font-semibold mb-4">Pengumpulan Data</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div>
-                    <label class="block mb-1 font-medium" for="cv">Curriculum Vitae (CV)*</label>
+                    <label class="block mb-1 font-medium" for="cv">Unggahan Berkas</label>
                     <input type="file" id="cv" name="cv" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                </div>
-                <div>
-                    <label class="block mb-1 font-medium" for="kartu_uc">Kartu Mahasiswa UC*</label>
-                    <input type="file" id="kartu_uc" name="kartu_uc" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                </div>
-                <div>
-                    <label class="block mb-1 font-medium" for="transkrip">Transkrip Akademik (Terbaru)*</label>
-                    <input type="file" id="transkrip" name="transkrip" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                </div>
-                <div>
-                    <label class="block mb-1 font-medium" for="o_week">Bukti Lulus O-Week*</label>
-                    <input type="file" id="o_week" name="o_week" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                </div>
-                <div>
-                    <label class="block mb-1 font-medium" for="lead101">Bukti Lulus Leadership 101*</label>
-                    <input type="file" id="lead101" name="lead101" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
-                </div>
-                <div>
-                    <label class="block mb-1 font-medium" for="portofolio">Portofolio (Khusus PDD)</label>
-                    <input type="file" id="portofolio" name="portofolio" class="w-full rounded-lg border-2 shadow-sm px-3 py-2">
                 </div>
             </div>
             </div>
