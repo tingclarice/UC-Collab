@@ -62,4 +62,43 @@ function readEvent() {
     }
     return $allData;
 }
+
+function getOrganizerWithID($organizer_id) {
+    $data = array();
+
+    if ($organizer_id>0) {
+        $conn = my_connectDB();
+        $sql_query = "SELECT * from `organizers` WHERE organizer_id=".$organizer_id;
+        
+        $result = mysqli_query($conn,$sql_query) or die(mysqli_error($conn));
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                // simpan data dari database ke dalam array
+                $data["organizer_id"] = $row["organizer_id"];
+                $data["name"] = $row["name"];
+                $data["email"] = $row["email"];
+                $data["password"] = $row["password"];
+            }
+        }
+
+        my_closeDB($conn);
+        return $data;
+    }
+}
+
+function updateOrganizer($organizer_id, $name, $email, $password) {
+    if ($organizer_id != "" && $name != "" && $email != "" && $password != "") {
+        $conn = my_connectDB();
+        
+        $sql_query = "UPDATE `organizers`
+                        SET `name` = '$name',
+                            `email` = '$email',
+                            `password` = '$password'
+                        WHERE `organizer_id` = '$organizer_id'";
+        $result = mysqli_query($conn, $sql_query) or die(mysqli_error($conn));
+        my_closeDB($conn);
+    }
+}
+
 ?>

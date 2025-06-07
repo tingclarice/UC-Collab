@@ -1,9 +1,5 @@
 <?php
-    session_start();
-
-    // Ambil data dari session
-    $user_id = $_SESSION["user_id"];
-    $username = $_SESSION["username"];
+    
 ?>
 
 <!DOCTYPE html>
@@ -47,14 +43,14 @@
     <section class="py-10 px-4 md:px-16 bg-white">
         
     <!-- Search Bar -->
-    <div class="flex justify-center items-center gap-2 mb-8">
+    <!-- <div class="flex justify-center items-center gap-2 mb-8">
         <input type="text" placeholder="Cari kepanitiaan..."
         class="shadow-md border rounded-full px-4 py-2 w-[250px] focus:outline-none" />
         <button class="shadow-md bg-orange-400 hover:bg-orange-500 text-white font-semibold px-4 py-2 rounded-full">
         
         Cari
         </button>
-    </div>
+    </div> -->
 
     <!-- Section Title -->
     <h2 class="text-center text-xl font-bold mb-6">Daftar Kepanitiaan</h2>
