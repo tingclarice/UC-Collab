@@ -1,3 +1,9 @@
+-- Quick SQL Snippets to Use
+
+-- 1. Resetting auto increment id example
+-- DELETE FROM events;
+-- ALTER TABLE events AUTO_INCREMENT = 1;
+
 -- Table: Organizers
 CREATE TABLE organizers (
     organizer_id INT PRIMARY KEY AUTO_INCREMENT,
