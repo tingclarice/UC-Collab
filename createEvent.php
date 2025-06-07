@@ -1,14 +1,16 @@
 <?php
+    ob_start(); 
+
     include "backend/controller.php";
     session_start();
-
-    // Ambil data dari session
-    $user_id = $_SESSION["user_id"];
-    $username = $_SESSION["username"];
 
     if(!isset($_SESSION['user_id'])) {
         header ("location: masuk.php");
     }
+
+    // Ambil data dari session
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
 
     // Form submission handling
     if(isset($_POST['submit'])) {
@@ -48,22 +50,21 @@
                     $result = $conn->query($sql_check);
 
                     if ($result->num_rows > 0) {
-                        echo "<script type='text/javascript'>alert('Acara dengan nama \"". $namaKepanitiaan ."\"sudah terdaftar. Silakan gunakan nama lain.');</script>";
-                        sleep(5); // delay for 5 seconds
-                        echo "<script type='text/javascript'>alert('Kembali ke halaman pembuatan acara');</script>";
-                        sleep(5); // delay for 5 seconds
+                        $_SESSION['error'] = "Acara dengan nama \"$namaKepanitiaan\" sudah terdaftar. Silakan gunakan nama lain.";
                         header("Location: createEvent.php");
+                        exit();
                     } else {
                         // Validate form data
                         $sql = "INSERT INTO events (event_name, description, location, application_deadline, poster_url, organizer_id, category_id) 
                             VALUES ('$namaKepanitiaan', '$deskripsi', '$lokasi', '$tanggalTutup', '$fileDestination', $user_id, $kategori)";
                     
                         if($conn -> query($sql)) {
-                            echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
-                            header("Location: masuk.php");
+                            // Jangan tampilkan alert sebelum header
+                            // The ?success=create part below is a query string or URL query parameter.
+                            // It lets you pass small bits of information via the URL between pages.
+                            // Commonly used for status messages, filtering, pagination
+                            header("Location: dashboard.php?success=create");
                             exit();
-                        } else {
-                            echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";
                         }
                     }
                 } else {
@@ -76,8 +77,6 @@
             echo "<script type='text/javascript'>alert('Format file tidak didukung. Silakan unggah file JPG atau PNG.');</script>";
             exit();
         }
-
-        
     }
 ?>
 
@@ -91,6 +90,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <?php if (isset($_SESSION['error'])): ?>
+        <script>
+            alert("<?php echo $_SESSION['error']; ?>");
+        </script>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
     <!-- Navigation Bar -->
     <?php include "layout/navAdmin.html" ?>
 

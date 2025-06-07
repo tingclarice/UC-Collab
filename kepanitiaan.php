@@ -79,9 +79,6 @@
             <p class="flex items-center gap-2 text-gray-800">
             <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
             </p>
-            <p class="flex items-center gap-2 text-gray-800">
-            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
-            </p>
         </div>
         </div>
 

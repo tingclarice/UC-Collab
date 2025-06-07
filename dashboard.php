@@ -2,6 +2,10 @@
     include "backend/controller.php";
     session_start();
 
+    if (isset($_GET['success']) && $_GET['success'] === 'create') {
+        echo "<script>alert('Event berhasil dipublikasikan!');</script>";
+    }
+
     if(!isset($_SESSION['user_id'])) {
         header ("location: masuk.php");
     }
@@ -52,40 +56,62 @@
     <section class="py-10 px-4 md:px-16 bg-white">
         
     <!-- Search Bar -->
-    <div class="flex justify-center items-center gap-2 mb-8">
+    <!-- <div class="flex justify-center items-center gap-2 mb-8">
         <input type="text" placeholder="Cari kepanitiaan..."
         class="shadow-md border rounded-full px-4 py-2 w-[250px] focus:outline-none" />
         <button class="shadow-md bg-orange-400 hover:bg-orange-500 text-white font-semibold px-4 py-2 rounded-full">
         
         Cari
         </button>
-    </div>
+    </div> -->
 
     <!-- Section Title -->
     <h2 class="text-center text-xl font-bold mb-6">Daftar Acara</h2>
 
     <!-- Grid of Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- Card O-Week -->
+    <?php
+        $result = readEvent();
+        foreach ($result as $barisdata) {
+    ?>
+        <!-- A Singular Card -->
         <div class="bg-[#FFE8D9] border border-black rounded-xl shadow p-3">
-        <img src="pic/kepanitiaan/oweek.PNG" alt="O-Week 2025" class="rounded-lg mb-3 h-40 w-full object-cover" />
-        <h3 class="font-semibold text-center -mb-2 text-lg">O-Week 2025</h3>
+        <img src="<?=$barisdata["poster_url"]?>" alt="Event Poster" class="rounded-lg mb-3 h-40 w-full object-cover" />
+        <h3 class="font-semibold text-center -mb-2 text-lg"><?=$barisdata["event_name"]?></h3>
         <div class="flex justify-center gap-4 text-sm text-gray-500 mb-4">
             <div class="flex items-center gap-3 mt-4">
         <!-- Calendar -->
         <div class="bg-white text-center text-sm font-semibold rounded-xl shadow px-2 py-1 leading-tight w-14 h-16 flex flex-col justify-center items-center">
-            <div class="text-xs text-gray-500 uppercase">Apr</div>
-            <div class="text-lg text-black leading-none">4</div>
-            <div class="text-[10px] text-gray-500">2025</div>
+            <!-- The strtotime() function parses an English textual datetime into a Unix timestamp -->
+        
+            <!-- M = short month name (e.g., Jan, Feb) -->
+            <div class="mt-1 text-xs text-gray-500 uppercase"><?= date("M", strtotime($barisdata["application_deadline"])) ?></div>
+            
+            <!-- j = Day of month (no leading 0) -->
+            <div class="mt-1 text-lg text-black leading-none"><?= date("j", strtotime($barisdata["application_deadline"])) ?></div>
+
+            <!-- Y = Full 4-digit year -->
+            <div class="mt-1 text-[10px] text-gray-500"><?= date("Y", strtotime($barisdata["application_deadline"])) ?></div>
         </div>
 
         <!-- Event Info -->
         <div class="text-sm">
+            <!-- Organizer (Penyelenggara) -->
             <p class="flex items-center gap-2 text-gray-800">
-            <img src="pic/kepanitiaan/penyelenggara-icon.png" class="w-4 h-4" /> Universitas Ciputra
+                <!-- University Icon SVG -->
+                <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM2.18 9L12 13.82 21.82 9 12 4.18 2.18 9zM4 10.9v6.74l8 3.64 8-3.64V10.9l-8 3.64-8-3.64z" />
+                </svg>
+                <?=$barisdata["organizer_id"];?>
             </p>
+
+            <!-- Location -->
             <p class="flex items-center gap-2 text-gray-800">
-            <img src="pic/kepanitiaan/posisi-icon.png" class="w-4 h-4" /> 100 posisi terbuka
+                <!-- Location Icon SVG -->
+                <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/>
+                </svg>
+                <?=$barisdata["location"];?>
             </p>
         </div>
         </div>
@@ -95,7 +121,9 @@
             Edit
         </button>
         </div>
-
+    <?php
+    }
+    ?>
     </div>
     </section>
 
