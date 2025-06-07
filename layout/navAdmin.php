@@ -1,6 +1,8 @@
 <?php
     require_once("backend/controller.php");
-    session_start();
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Ambil data dari session
     $organizer_id = $_SESSION["user_id"];
