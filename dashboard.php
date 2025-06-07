@@ -6,6 +6,10 @@
         echo "<script>alert('Event berhasil dipublikasikan!');</script>";
     }
 
+    if (isset($_GET['success']) && $_GET['success'] === 'deleted') {
+        echo "<script>alert('Event berhasil dihapus!');</script>";
+    }
+
     if(!isset($_SESSION['user_id'])) {
         header ("location: masuk.php");
     }
@@ -117,9 +121,21 @@
         </div>
 
         </div>
-        <button class="shadow-md w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
-            Edit
-        </button>
+        
+        <div class="flex gap-2">
+            <button class="w-1/2 shadow-md bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-full font-semibold">
+                Edit
+            </button>
+            
+            
+            <a href="deleteEvent.php?deleteid=<?=$barisdata["event_id"];?>"
+            onclick="return confirm('Are you sure you want to delete this event?');"
+            class="w-1/2 text-center shadow-md bg-red-500 hover:bg-red-600 text-white py-2 rounded-full font-semibold block">
+            Delete
+            </a>
+            
+        </div>
+
         </div>
     <?php
     }
