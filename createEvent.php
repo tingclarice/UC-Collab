@@ -98,7 +98,7 @@
     <?php endif; ?>
 
     <!-- Navigation Bar -->
-    <?php include "layout/navAdmin.html" ?>
+    <?php include "layout/navAdmin.php" ?>
 
     <!-- Section : FORM UPLOAD OPEN RECRUITMENT KEPANITIAAN -->
     <section class="bg-[#FFFEF8]">

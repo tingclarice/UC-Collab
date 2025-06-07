@@ -1,3 +1,14 @@
+<?php
+    require_once("backend/controller.php");
+    session_start();
+
+    // Ambil data dari session
+    $organizer_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
+
+
+?>
+
 <!-- Clean Profile Navigation Bar -->
 <nav class="sticky top-0 z-50 bg-gradient-to-r from-orange-500 to-orange-400 px-6 py-3 shadow-md">
     <div class="flex items-center justify-between">
@@ -25,7 +36,7 @@
             </svg>
             Dashboard
             </a>
-            <a href="edit-profile.php" class="flex items-center px-4 py-3 text-sm text-orange-600 hover:bg-orange-50 transition">
+            <a href="profile.php?profileID=<?=$organizer_id;?>" class="flex items-center px-4 py-3 text-sm text-orange-600 hover:bg-orange-50 transition">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
             </svg>

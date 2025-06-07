@@ -1,5 +1,5 @@
 <?php
-    include "backend/controller.php";
+    require_once("backend/controller.php");
     session_start();
 
     if (isset($_GET['success']) && $_GET['success'] === 'create') {
@@ -43,7 +43,7 @@
 </head>
 <body class="bg-[#FFFEF8]">
     <!-- Navigation bar -->
-    <?php include "layout/navAdmin.html" ?>
+    <?php include "layout/navAdmin.php" ?>
 
     <!-- Header -->
     <header class="relative bg-cover bg-center text-white h-[500px] flex items-center justify-center"
@@ -58,16 +58,6 @@
 
     <!-- Daftar Kepanitiaan -->
     <section class="py-10 px-4 md:px-16 bg-white">
-        
-    <!-- Search Bar -->
-    <!-- <div class="flex justify-center items-center gap-2 mb-8">
-        <input type="text" placeholder="Cari kepanitiaan..."
-        class="shadow-md border rounded-full px-4 py-2 w-[250px] focus:outline-none" />
-        <button class="shadow-md bg-orange-400 hover:bg-orange-500 text-white font-semibold px-4 py-2 rounded-full">
-        
-        Cari
-        </button>
-    </div> -->
 
     <!-- Section Title -->
     <h2 class="text-center text-xl font-bold mb-6">Daftar Acara</h2>
