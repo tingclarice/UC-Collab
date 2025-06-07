@@ -15,10 +15,34 @@
         body {
         font-family: 'Inter', sans-serif;
         }
+        
+        /* Animasi card */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
     </style>
 
     <!-- jQuery for any interactivity -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        // Animasi hover untuk feature card
+        $('.feature-card').hover(
+            function() {
+                $(this).stop().animate({
+                    'marginTop': '-10px',
+                    'boxShadow': '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                }, 200);
+            },
+            function() {
+                $(this).stop().animate({
+                    'marginTop': '0',
+                    'boxShadow': '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                }, 200);
+            }
+        );
+    });
+    </script>
 </head>
 <body>
     <?php include "layout/nav.html" ?>
@@ -52,7 +76,7 @@
     <!-- Feature Section -->
     <section class="py-16 px-6">
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-orange-100 p-6 rounded-lg shadow-lg">
+            <div class="bg-orange-100 p-6 rounded-lg shadow-lg feature-card">
                 <h3 class="text-xl font-semibold mb-4">Pendaftar Kepanitiaan</h3>
                 <ul class="list-disc list-inside">
                     <li>🔍 Telusuri acara kampus yang sedang mencari panitia</li>
@@ -60,7 +84,7 @@
                     <li>📝 Mendaftar langsung ke posisi pilihan hanya dengan mengisi formulir</li>
                 </ul>
             </div>
-            <div class="bg-orange-100 p-6 rounded-lg shadow-lg">
+            <div class="bg-orange-100 p-6 rounded-lg shadow-lg feature-card">
                 <h3 class="text-xl font-semibold mb-4">Penyelenggara Acara</h3>
                 <ul class="list-disc list-inside">
                     <li>🛠️ Membuat dan mengelola acara baru melalui dashboard</li>
