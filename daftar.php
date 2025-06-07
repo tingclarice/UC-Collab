@@ -12,14 +12,26 @@
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
         
-        $sql = "INSERT INTO organizers (name, email, password) VALUES ('$username', '$email', '$password')";
-    
-        if($conn -> query($sql)) {
-            echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
-            header("Location: masuk.php");
-            exit();
+        $sql_check = "SELECT * FROM organizers WHERE email = '$email'";
+        $result = $conn->query($sql_check);
+
+        if ($result->num_rows > 0) {
+            echo "<script type='text/javascript'>alert('Email sudah terdaftar. Silakan gunakan email lain.');</script>";
+            sleep(5); // delay for 5 seconds
+            echo "<script type='text/javascript'>alert('Kembali ke halaman daftar');</script>";
+            sleep(5); // delay for 5 seconds
+            header("Location: daftar.php");
         } else {
-            echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";
+            // Validate form data
+            $sql = "INSERT INTO organizers (name, email, password) VALUES ('$username', '$email', '$password')";
+        
+            if($conn -> query($sql)) {
+                echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
+                header("Location: masuk.php");
+                exit();
+            } else {
+                echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";
+            }
         }
     }
 ?>

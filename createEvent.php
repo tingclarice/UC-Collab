@@ -1,56 +1,86 @@
 <?php
-include "backend/controller.php";
-session_start();
+    include "backend/controller.php";
+    session_start();
 
-// // Verify organizer is logged in
-// if(!isset($_SESSION['organizer_id'])) {
-//     echo "<script>
-//         alert('Please login as an organizer first.');
-//     </script>";
-//     header("Location: masuk.php");
-// }
+    // Ambil data dari session
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
 
-if(isset($_POST['submit'])) {
-    // Verify organizer exists
-    $check_organizer = $conn->query("SELECT 1 FROM organizers WHERE organizer_id = {$_SESSION['organizer_id']}");
-    if($check_organizer->num_rows === 0) {
-        die("<script>
-            alert('Your organizer account is invalid!');
-            window.location.href='login.php';
-        </script>");
+    if(!isset($_SESSION['user_id'])) {
+        header ("location: masuk.php");
     }
 
-    // Process form data...
-    $event_name = $conn->real_escape_string($_POST['namaKepanitiaan']);
-    $category_id = (int)$_POST['kategori'];
-    $description = $conn->real_escape_string($_POST['deskripsi']);
-    $tanggalTutup = $conn->real_escape_string($_POST['tanggalTutup']);
-    $lokasi = $conn->real_escape_string($_POST['lokasi']);
-    
-    // File upload handling...
-    $poster_name = $_FILES['poster']['name'];
-    $targetDir = "uploads/";
-    $targetFile = $targetDir . basename($poster_name);
-    
-    if(move_uploaded_file($_FILES['poster']['tmp_name'], $targetFile)) {
-        $sql = "INSERT INTO events 
-               (event_name, description, location, application_deadline, poster_url, organizer_id, category_id) 
-               VALUES ('$event_name', '$description', '$lokasi', '$tanggalTutup', '$targetFile', {$_SESSION['organizer_id']}, $category_id)";
+    // Form submission handling
+    if(isset($_POST['submit'])) {
+        // Get form data
+        $namaKepanitiaan = $_POST['namaKepanitiaan'];
+        $kategori = $_POST['kategori'];
+        $deskripsi = $_POST['deskripsi'];
+        $tanggalTutup = $_POST['tanggalTutup'];
+        $lokasi = $_POST['lokasi'];
         
-        if($conn->query($sql)) {
-            echo "<script>
-                alert('Event created successfully!');
-                window.location.href='dashboard.php';
-            </script>";
+        $fileName = $_FILES['poster']['name'];
+        $fileTmpName = $_FILES['poster']['tmp_name'];
+        $fileSize = $_FILES['poster']['size'];
+        $fileError = $_FILES['poster']['error'];
+        $fileType = $_FILES['poster']['type'];
+
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $allowed = array('jpg', 'jpeg', 'png');
+
+        if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                // Debug Message
+                // echo "<script type='text/javascript'>alert('File size: \"". $fileSize ."\"bytes');</script>";
+
+                $maxSize = 500 * 1024 * 1024; // 500 MB in bytes
+
+                // Check file size (max 500MB)
+                if ($fileSize <= $maxSize) {
+                    // The uniqid() function generates a unique ID based on the microtime (the current time in microseconds)
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = 'uploads/'.$fileNameNew;
+                    move_uploaded_file($fileTmpName, $fileDestination);
+
+                    // Database Insertion
+                    $sql_check = "SELECT * FROM events WHERE event_name = '$namaKepanitiaan'";
+                    $result = $conn->query($sql_check);
+
+                    if ($result->num_rows > 0) {
+                        echo "<script type='text/javascript'>alert('Acara dengan nama \"". $namaKepanitiaan ."\"sudah terdaftar. Silakan gunakan nama lain.');</script>";
+                        sleep(5); // delay for 5 seconds
+                        echo "<script type='text/javascript'>alert('Kembali ke halaman pembuatan acara');</script>";
+                        sleep(5); // delay for 5 seconds
+                        header("Location: createEvent.php");
+                    } else {
+                        // Validate form data
+                        $sql = "INSERT INTO events (event_name, description, location, application_deadline, poster_url, organizer_id, category_id) 
+                            VALUES ('$namaKepanitiaan', '$deskripsi', '$lokasi', '$tanggalTutup', '$fileDestination', $user_id, $kategori)";
+                    
+                        if($conn -> query($sql)) {
+                            echo "<script type='text/javascript'>alert('Akun berhasil dibuat!');</script>";
+                            header("Location: masuk.php");
+                            exit();
+                        } else {
+                            echo "<script type='text/javascript'>alert('Gagal membuat akun');</script>";
+                        }
+                    }
+                } else {
+                    echo "<script type='text/javascript'>alert('File terlalu besar! Maksimal 500mb.');</script>";
+                }
+            } else {
+                echo "<script type='text/javascript'>alert('Ada error dalam file upload!');</script>";
+            }
         } else {
-            unlink($targetFile);
-            echo "<script>alert('Database error: ".$conn->error."');</script>";
+            echo "<script type='text/javascript'>alert('Format file tidak didukung. Silakan unggah file JPG atau PNG.');</script>";
+            exit();
         }
-    } else {
-        echo "<script>alert('Failed to upload poster image.');</script>";
+
+        
     }
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,7 +147,7 @@ if(isset($_POST['submit'])) {
                 <div>
                     <h2 class="text-2xl font-semibold mb-4">Unggah Poster</h2>
                     <label class="block mb-1 font-medium" for="poster">Poster Kepanitiaan</label>
-                    <input type="file" id="poster" name="poster" class="w-full rounded-lg border-2 shadow-sm px-3 py-2">
+                    <input type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" class="w-full rounded-lg border-2 shadow-sm px-3 py-2" required>
                 </div>
 
                 <!-- Tombol -->

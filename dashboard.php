@@ -1,13 +1,14 @@
 <?php
+    include "backend/controller.php";
     session_start();
 
-    // Verify organizer is logged in
-    // if(!isset($_SESSION['organizer_id'])) {
-    //     echo "<script>
-    //         alert('Please login as an organizer first.');
-    //     </script>";
-    //     header("Location: masuk.php");
-    // }
+    if(!isset($_SESSION['user_id'])) {
+        header ("location: masuk.php");
+    }
+
+    // Ambil data dari session
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    // Ambil data dari session
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

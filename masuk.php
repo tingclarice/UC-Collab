@@ -1,33 +1,33 @@
 <?php
+    // Dengan ob_start();, PHP akan menyimpan semua output sementara dalam buffer, dan tidak langsung mengirim ke browser. Jadi kamu masih bisa melakukan header("Location: ...") setelah itu.
+    // ob_start(); 
+
     include "backend/controller.php";
     session_start();
-
-    if(isset($_SESSION["is_login"])) {
-        header ("location: dashboard.php");
-    }
 
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM organizers WHERE 
-        name='$username' AND password='$password'";
+        $sql = "SELECT * FROM organizers WHERE name='$username' AND password='$password'";
 
         $result = $conn -> query($sql);
 
         if($result -> num_rows > 0) {
-            echo "<script type='text/javascript'>alert('Login Berhasil!');</script>";
+            // Echo before header will not redirect. Once you echo anything, you send headers to the browser, so header() will silently fail.
+            // echo "<script type='text/javascript'>alert('Login Berhasil!');</script>";
             $data = $result -> fetch_assoc();
+            $_SESSION["user_id"] = $data['organizer_id']; // store id dari database ke session
             $_SESSION["username"] = $data['name']; // store name dari database ke session
-            $_SESSION["is_login"] = true;
 
             header("Location: dashboard.php");
+            
+            // Without exit(), PHP keeps executing and might render HTML, which prevents the redirect.
+            exit();
         } else {
             echo "<script type='text/javascript'>alert('Login Gagal! Periksa username dan password Anda.');</script>";
         }
     }
-
-    
 ?>
 
 <!DOCTYPE html>

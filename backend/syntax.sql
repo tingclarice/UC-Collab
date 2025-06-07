@@ -14,33 +14,33 @@ CREATE TABLE categories (
 
 -- Table: Events (main)
 CREATE TABLE events (
-    `events_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `event_id` INT PRIMARY KEY AUTO_INCREMENT,
     `event_name` VARCHAR(255) NOT NULL,
     `description` TEXT,
     `location` VARCHAR(255),
     `application_deadline` DATE,
     `poster_url` TEXT,
-    `organizer_id` INT,
-    `category_id` INT,
-    FOREIGN KEY (organizer_id) REFERENCES organizers(organizer_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id),
+    `organizer_id` INT DEFAULT NULL,
+    `category_id` INT DEFAULT NULL,
+    FOREIGN KEY (organizer_id) REFERENCES organizers(organizer_id) ON DELETE SET NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );     
 
 -- Table: Application
-CREATE TABLE application (
-    application_id INT PRIMARY KEY AUTO_INCREMENT,
-    events_id INT,
+CREATE TABLE event_applications (
+    event_application_id INT PRIMARY KEY AUTO_INCREMENT,
+    event_id INT NOT NULL,
     nama_lengkap VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     nim VARCHAR(20),
     kontak VARCHAR(20),
     jurusan VARCHAR(100),
-    angkatan VARCHAR(4),
+    angkatan YEAR,
     pilihan_divisi_1 VARCHAR(100),
     pilihan_divisi_2 VARCHAR(100),
     berkas_url TEXT,
-    FOREIGN KEY (events_id) REFERENCES events(events_id)
+    FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE
 );
 
 
